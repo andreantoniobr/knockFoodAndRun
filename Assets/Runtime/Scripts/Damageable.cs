@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private Target target;
+    public Target Target => target;
 }

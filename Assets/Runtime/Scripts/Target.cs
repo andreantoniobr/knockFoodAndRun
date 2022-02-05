@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private float forwardForceOnSlap = 30f;    
+    [SerializeField] private float upForceOnSlap = 20f;
+    [SerializeField] private bool inMovement = false;
+
+    private void Update()
     {
-        
+        if (inMovement)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.z += forwardForceOnSlap * Time.deltaTime;
+            //currentPosition.y += upForceOnSlap * Time.deltaTime;
+            currentPosition.y -= gravity * Time.deltaTime;            
+            transform.position = currentPosition;
+        }        
+    }
+    
+    private void SetUpForce()
+    {
+        Vector3 currentPosition = transform.position;
+        currentPosition.y += upForceOnSlap;
+        transform.position = currentPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Slap()
     {
-        
+        inMovement = true;
+        //SetUpForce();
     }
 }

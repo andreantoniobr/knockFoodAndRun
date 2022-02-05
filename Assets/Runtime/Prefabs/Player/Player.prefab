@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6163382506617758393}
+  - component: {fileID: 4177302153813315343}
   - component: {fileID: 8769179787364666823}
   - component: {fileID: 6163382506617758392}
   - component: {fileID: 3397287013380891342}
@@ -67,6 +68,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &4177302153813315343
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6163382506617758398}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &8769179787364666823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,8 +136,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 623445271251775594, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: m_Name
-      value: PlayerHandColliderRight
+      value: PlayerRightHandCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 6144627506058477052, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
+      propertyPath: handDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144627506058477052, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
+      propertyPath: playerRigController
+      value: 
+      objectReference: {fileID: 382486646540296517}
     - target: {fileID: 8003309483948195700, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -227,14 +252,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerModel
       objectReference: {fileID: 0}
-    - target: {fileID: 7935771278734453956, guid: e6e00df948cf2b849b8286f32dfcb46e, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7935771278734453956, guid: e6e00df948cf2b849b8286f32dfcb46e, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 22e912abae71d6e408a44f6d46fa36c4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e00df948cf2b849b8286f32dfcb46e, type: 3}
 --- !u!4 &5613356129252164198 stripped
@@ -247,6 +264,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 401633676939751017, guid: e6e00df948cf2b849b8286f32dfcb46e, type: 3}
   m_PrefabInstance: {fileID: 2203503557791479413}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &382486646540296517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2007118188590208816, guid: e6e00df948cf2b849b8286f32dfcb46e, type: 3}
+  m_PrefabInstance: {fileID: 2203503557791479413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5930450288a41894bbd7bd32c75a67c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2270955646875630805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -256,8 +284,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 623445271251775594, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: m_Name
-      value: PlayerHandColliderLeft
+      value: PlayerLeftHandCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 6144627506058477052, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
+      propertyPath: playerRigController
+      value: 
+      objectReference: {fileID: 382486646540296517}
     - target: {fileID: 8003309483948195700, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: m_RootOrder
       value: 0
