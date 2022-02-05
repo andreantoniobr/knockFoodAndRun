@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public enum HandDirection
 public class PlayerHandColliderController : MonoBehaviour
 {
     [SerializeField] private HandDirection handDirection;
-    [SerializeField] private PlayerRigController playerRigController;
+    [SerializeField] private PlayerRigController playerRigController;    
 
     private void OnTriggerEnter(Collider other)
     {

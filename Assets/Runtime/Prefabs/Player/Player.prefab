@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRightHandCollider
       objectReference: {fileID: 0}
+    - target: {fileID: 1620865039018968354, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6144627506058477052, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: handDirection
       value: 1
@@ -285,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 623445271251775594, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: m_Name
       value: PlayerLeftHandCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620865039018968354, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
+      propertyPath: m_Radius
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6144627506058477052, guid: dc3c87f419f43124eaa75029bdfa9a59, type: 3}
       propertyPath: playerRigController
