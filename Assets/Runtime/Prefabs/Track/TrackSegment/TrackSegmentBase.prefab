@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2547183897438499049}
   - component: {fileID: 8553153697072453383}
+  - component: {fileID: 477992081903780682}
   m_Layer: 0
   m_Name: TrackSegmentBase
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPosition: {fileID: 9007089619470674275}
   endPosition: {fileID: 845913286897307000}
+--- !u!65 &477992081903780682
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3900991075004913486}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7435996957905124898
 GameObject:
   m_ObjectHideFlags: 0
