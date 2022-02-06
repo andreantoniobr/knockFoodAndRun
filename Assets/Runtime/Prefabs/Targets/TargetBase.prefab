@@ -126,25 +126,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43895e3aaaf3e8043b8b3a372c08b63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockUpMovementPercent: 0.507
+  knockUpMovementPercent: 0.51
   targetConfigInNormalMovement:
     gravity: 48.5
-    minDistanceX: 0.5
-    maxDistanceX: 5
-    minForwardForceZ: 90
-    maxForwardForceZ: 25
-    minUpForceY: 11
+    minHorizontalForceX: 0.5
+    maxHorizontalForceX: 5
+    minForwardForceZ: 102
+    maxForwardForceZ: 105
+    minUpForceY: 9
     maxUpForceY: 11
   targetConfigInUpMovement:
     gravity: 48.5
-    minDistanceX: 0.5
-    maxDistanceX: 5
+    minHorizontalForceX: 0.5
+    maxHorizontalForceX: 5
     minForwardForceZ: 23
     maxForwardForceZ: 25
     minUpForceY: 14
     maxUpForceY: 20
   isKnocked: 0
-  isknockUpMovement: 0
 --- !u!114 &7741290888173799578
 MonoBehaviour:
   m_ObjectHideFlags: 0

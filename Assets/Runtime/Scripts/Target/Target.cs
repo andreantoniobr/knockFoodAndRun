@@ -6,9 +6,10 @@ using UnityEngine;
 public class TargetConfig
 {
     [SerializeField] private float gravity = 9.8f;
-    
-    [SerializeField] private float minDistanceX = 0.5f;
-    [SerializeField] private float maxDistanceX = 5f;
+
+    [Space]
+    [SerializeField] private float minHorizontalForceX = 0.5f;
+    [SerializeField] private float maxHorizontalForceX = 5f;
 
     [Space]
     [SerializeField] private float minForwardForceZ = 15f;
@@ -20,6 +21,9 @@ public class TargetConfig
 
     public float Gravity => gravity;
 
+    public float MinHorizontalForceX => minHorizontalForceX;
+    public float MaxHorizontalForceX => maxHorizontalForceX;
+
     public float MinForwardForceZ => minForwardForceZ;
     public float MaxForwardForceZ => maxForwardForceZ;
 
@@ -28,22 +32,7 @@ public class TargetConfig
 }
 
 public class Target : MonoBehaviour
-{/*
-    [SerializeField] private float gravity = 40f;
-
-    [Space]
-    [SerializeField] private float minDistanceX = 0.5f;
-    [SerializeField] private float maxDistanceX = 5f;
-
-    [Space]
-    [SerializeField] private float minForwardForceZ = 60f;
-    [SerializeField] private float maxForwardForceZ = 60f;
-
-    [Space]
-    [SerializeField] private float minUpForceY = 14f;
-    [SerializeField] private float maxUpForceY = 14f;*/
-
-    [Space]
+{
     [Range(0f, 1f)]
     [SerializeField] private float knockUpMovementPercent = 0.5f;
 
@@ -52,35 +41,31 @@ public class Target : MonoBehaviour
 
     [Space]
     [SerializeField] private bool isKnocked = false;
-    [SerializeField] private bool isknockUpMovement = false;
 
     private Vector3 currentPosition;
-    private Vector3 initialPosition;
     private TargetConfig targetConfig = null;
 
-    public static event System.Action OnknockedEvent;
+    private float forwardForceZ;
+    private float horizontalForceX;
 
-    private void Awake()
-    {
-        initialPosition = transform.position;
-    }
+    public static event System.Action OnknockedEvent;   
 
     private void Update()
     {
-        ProcessForwardMovement();
-        ProcessFoodGravity();
-        UpdateFoodPosition();
-    }
+        ProcessForwardMovementZ();
+        ProcessGravityY();
+        UpdatePosition();
+    }    
 
-    private void ProcessForwardMovement()
+    private void ProcessForwardMovementZ()
     {
         if (isKnocked && targetConfig != null)
         {
-            currentPosition.z += targetConfig.MinForwardForceZ * Time.deltaTime;
+            currentPosition.z += forwardForceZ * Time.deltaTime;
         }            
     }
 
-    private void ProcessFoodGravity()
+    private void ProcessGravityY()
     {
         if (isKnocked && targetConfig != null)
         {
@@ -88,7 +73,7 @@ public class Target : MonoBehaviour
         }
     }    
 
-    private void UpdateFoodPosition()
+    private void UpdatePosition()
     {
         if (isKnocked)
         {
@@ -101,24 +86,28 @@ public class Target : MonoBehaviour
         targetConfig = targetConfigInNormalMovement;
         if (knockUpMovementPercent >= Random.value)
         {
-            //Debug.Log("Up");
-            isknockUpMovement = true;
             targetConfig = targetConfigInUpMovement;
         }
     }
 
     private void SetInitialForces()
     {
-        SetInitialUpForceY();
-    }    
-
-    private void SetInitialUpForceY()
-    {
         if (targetConfig != null)
         {
-            float upForceY = Random.Range(targetConfig.MinUpForceY, targetConfig.MaxUpForceY);
-            currentPosition.y = upForceY;
-        }        
+            SetRamdomUpForceY();
+            SetRandomForwardForceZ();
+        }
+    }    
+
+    private void SetRamdomUpForceY()
+    {
+        float upForceY = Random.Range(targetConfig.MinUpForceY, targetConfig.MaxUpForceY);
+        currentPosition.y = upForceY;
+    }
+
+    private void SetRandomForwardForceZ()
+    {
+        forwardForceZ = Random.Range(targetConfig.MinForwardForceZ, targetConfig.MaxForwardForceZ);
     }
 
     public void Slap()
