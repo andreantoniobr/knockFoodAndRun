@@ -16,7 +16,20 @@ public class DamageableSpawner : MonoBehaviour
                 Vector3 currentPosition = damadeableObject.transform.position;
                 currentPosition.x = 3f * Random.value;
                 damadeableObject.transform.position = currentPosition;
+
+                //rotate
+                RotateDamageable(damadeableObject, currentPosition);
             }
+        }
+    }
+
+    private void RotateDamageable(Damageable damadeableObject, Vector3 currentPosition)
+    {
+        float randomRotatePercent = Random.value;
+        if (randomRotatePercent > 0.5f)
+        {
+            int angle = 90;
+            damadeableObject.transform.RotateAround(currentPosition, Vector3.up, angle);
         }
     }
 }

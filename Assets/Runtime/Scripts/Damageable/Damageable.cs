@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    [SerializeField] private Target target;
+    [SerializeField] private TargetSpawner targetSpawner;
+    
+    private Target target;
     public Target Target => target;
+
+    private void Awake()
+    {
+        if (targetSpawner)
+        {
+            target = targetSpawner.InstantiateRandomTarget();
+            if (target)
+            {
+                target.transform.localPosition = Vector3.zero;
+            }
+        }
+    }
 }

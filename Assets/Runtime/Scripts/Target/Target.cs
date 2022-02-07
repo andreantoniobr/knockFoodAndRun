@@ -52,25 +52,28 @@ public class Target : MonoBehaviour
 
     private void Update()
     {
-        ProcessForwardMovementZ();
-        ProcessGravityY();
+        if (isKnocked && targetConfig != null)
+        {
+            ProcessHorizontalMovementX();
+            ProcessForwardMovementZ();
+            ProcessGravityY();
+        }        
         UpdatePosition();
-    }    
+    }
+
+    private void ProcessHorizontalMovementX()
+    {
+        currentPosition.x += horizontalForceX * Time.deltaTime;
+    }
 
     private void ProcessForwardMovementZ()
     {
-        if (isKnocked && targetConfig != null)
-        {
-            currentPosition.z += forwardForceZ * Time.deltaTime;
-        }            
+        currentPosition.z += forwardForceZ * Time.deltaTime;
     }
 
     private void ProcessGravityY()
     {
-        if (isKnocked && targetConfig != null)
-        {
-            currentPosition.y -= targetConfig.Gravity * Time.deltaTime;
-        }
+        currentPosition.y -= targetConfig.Gravity * Time.deltaTime;
     }    
 
     private void UpdatePosition()
@@ -94,10 +97,18 @@ public class Target : MonoBehaviour
     {
         if (targetConfig != null)
         {
+            SetRandomHorizontalForceX();
             SetRamdomUpForceY();
             SetRandomForwardForceZ();
         }
-    }    
+    }
+
+    private void SetRandomHorizontalForceX()
+    {
+        float ramdomHorizontalForceX = Random.Range(targetConfig.MinHorizontalForceX, targetConfig.MaxHorizontalForceX);
+        int ramdomDirectionX = Random.Range(0, 2) * 2 - 1;
+        horizontalForceX = ramdomHorizontalForceX * ramdomDirectionX;
+    }
 
     private void SetRamdomUpForceY()
     {
