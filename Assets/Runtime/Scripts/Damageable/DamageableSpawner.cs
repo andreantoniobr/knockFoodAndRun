@@ -4,32 +4,48 @@ using UnityEngine;
 
 public class DamageableSpawner : MonoBehaviour
 {
-    [SerializeField] private Damageable damageable;
+    [SerializeField] private Damageable[] damageables;
 
     private void Start()
     {
-        if (damageable)
-        {
-            Damageable damadeableObject = Instantiate(damageable, transform);
-            if (damadeableObject)
-            {
-                Vector3 currentPosition = damadeableObject.transform.position;
-                currentPosition.x = 3f * Random.value;
-                damadeableObject.transform.position = currentPosition;
+        InstantiateRandomDamageable();
+    }
 
-                //rotate
-                RotateDamageable(damadeableObject, currentPosition);
-            }
+    private void InstantiateRandomDamageable()
+    {
+        int damageablesAmount = damageables.Length;
+        int randomDamageableIndex = Random.Range(0, damageablesAmount);
+        if (randomDamageableIndex >= 0 && randomDamageableIndex <= damageablesAmount - 1)
+        {
+            InstantiateDamageable(damageables[randomDamageableIndex]);
         }
     }
 
-    private void RotateDamageable(Damageable damadeableObject, Vector3 currentPosition)
+    private void InstantiateDamageable(Damageable damageable)
     {
+        Damageable damadeableObject = Instantiate(damageable, transform);
+        if (damadeableObject)
+        {
+            DamageableSetRandomPosition(damadeableObject);
+            RotateDamageable(damadeableObject);
+        }
+    }
+
+    private static void DamageableSetRandomPosition(Damageable damadeableObject)
+    {
+        Vector3 currentPosition = damadeableObject.transform.position;
+        currentPosition.x = 3f * Random.value;
+        damadeableObject.transform.position = currentPosition;
+    }
+
+    private void RotateDamageable(Damageable damadeableObject)
+    {
+        int angle = 30;
         float randomRotatePercent = Random.value;
         if (randomRotatePercent > 0.5f)
         {
-            int angle = 90;
-            damadeableObject.transform.RotateAround(currentPosition, Vector3.up, angle);
+            angle = 120;            
         }
+        damadeableObject.transform.RotateAround(damadeableObject.transform.position, Vector3.up, angle);
     }
 }

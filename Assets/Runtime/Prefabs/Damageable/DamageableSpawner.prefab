@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be7a6121c30fbf42b5786121ef590ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 2584315858980812992, guid: 4ba4f29cb67707a4bb6831a7e526caa3, type: 3}
+  damageables:
+  - {fileID: 2584315858980812992, guid: e2aa61ff5c801c24c9754de0712a559d, type: 3}
+  - {fileID: 2584315858980812992, guid: 4ba4f29cb67707a4bb6831a7e526caa3, type: 3}

@@ -11,6 +11,11 @@ public class Damageable : MonoBehaviour
 
     private void Awake()
     {
+        InstantiateTarget();
+    }
+
+    private void InstantiateTarget()
+    {
         if (targetSpawner)
         {
             target = targetSpawner.InstantiateRandomTarget();
@@ -18,6 +23,6 @@ public class Damageable : MonoBehaviour
             {
                 target.transform.localPosition = Vector3.zero;
             }
-        }
+        }        
     }
 }

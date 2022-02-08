@@ -477,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7578387579708765508
 Transform:
   m_ObjectHideFlags: 0
@@ -1233,7 +1233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5356014890785482987
 Transform:
   m_ObjectHideFlags: 0
@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 1132746511823239870}
   - component: {fileID: 7223366984258293285}
   m_Layer: 0
-  m_Name: NpcManModel01
+  m_Name: NpcManSitting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1352,12 +1352,16 @@ Animator:
   m_GameObject: {fileID: 6357147308368228009}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 30e39131b22b749db9afc94da81940a3, type: 3}
-  m_Controller: {fileID: 9100000, guid: 4c994c5f11a513845b1a7482301394e9, type: 2}
+  m_Controller: {fileID: 9100000, guid: ba172fac74366e0469afe1d917808497, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'upper_arm.R'\n\tTransform 'hand.R'\n\tTransform
+    'forearm.R'\n\tTransform 'upper_arm.R'\n\tTransform 'hand.R'\n\tTransform 'forearm.R'\n\tTransform
+    'upper_arm.R'\n\tTransform 'hand.R'\n\tTransform 'forearm.R'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
