@@ -19,9 +19,28 @@ public class PlayerHandColliderController : MonoBehaviour
         Damageable damageable = other.GetComponent<Damageable>();
         if (damageable)
         {
-            //Debug.Log("Collidiu");
-            playerRigController.StartSlap(damageable.Target.transform.position, handDirection);
-            damageable.Target.Slap();
+            KnockAllTargets(damageable);
         }
+    }
+
+    private void KnockAllTargets(Damageable damageable)
+    {
+        int targetsAmount = damageable.Targets.Count;
+        if (targetsAmount > 0)
+        {
+            foreach (Target target in damageable.Targets)
+            {
+                KnockTarget(target);
+            }
+        }
+    }
+
+    private void KnockTarget(Target target)
+    {
+        if (target)
+        {
+            playerRigController.StartSlap(target.transform.position, handDirection);
+            target.Slap();
+        }        
     }
 }

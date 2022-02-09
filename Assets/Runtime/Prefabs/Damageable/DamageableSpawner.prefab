@@ -46,3 +46,4 @@ MonoBehaviour:
   damageables:
   - {fileID: 2584315858980812992, guid: e2aa61ff5c801c24c9754de0712a559d, type: 3}
   - {fileID: 2584315858980812992, guid: 4ba4f29cb67707a4bb6831a7e526caa3, type: 3}
+  - {fileID: 2584315858980812992, guid: 53bddff5acce3394fb5fcedf0b971a4d, type: 3}

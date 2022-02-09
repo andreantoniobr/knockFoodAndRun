@@ -84,7 +84,7 @@ public class Target : MonoBehaviour
         }        
     }
 
-    private void SetMovementConfig()
+    private void SetMovementTypeConfig()
     {
         targetConfig = targetConfigInNormalMovement;
         if (knockUpMovementPercent >= Random.value)
@@ -127,7 +127,7 @@ public class Target : MonoBehaviour
         {
             isKnocked = true;
             OnknockedEvent?.Invoke();
-            SetMovementConfig();
+            SetMovementTypeConfig();
             SetInitialForces();
         }        
     }
