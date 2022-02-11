@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1348e35e98107a84486d1c5bb42f4287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackSegmentModel: {fileID: 4021146959320880843, guid: c45540065160a8849a051901aa552468, type: 3}
-  initialTrackSegmentsAmount: 20
+  startTrackSegment: {fileID: 4021146959320880843, guid: db5a684f79028b743a1859fcdda964d9, type: 3}
+  finishTrackSegment: {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
+  trackSegmentModel: {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
+  initialTrackSegmentsAmount: 18

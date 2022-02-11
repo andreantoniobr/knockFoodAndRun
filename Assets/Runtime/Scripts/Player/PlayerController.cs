@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float horizontalSpeedX = 3f;
     [SerializeField] private float maxDistanceX = 3f;
 
+    private bool isDeath = false;
+
     private bool isRunning = false;
     public bool IsRunning => isRunning;
 
@@ -20,20 +22,35 @@ public class PlayerController : MonoBehaviour
     private float MaxLeftDistance => initialPosition.x - maxDistanceX;
     private float MaxRightDistance => initialPosition.x + maxDistanceX;
 
+    public event Action<bool> OnRunEvent;
+
     private void Awake()
     {
         initialPosition = transform.position;
         GetPlayerInputControllerComponent();
-    }    
+        PlayerCollisionController.OnDeathEvent += OnDeath;
+        PlayerCollisionController.OnFinishEvent += OnFinish;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCollisionController.OnDeathEvent -= OnDeath;
+        PlayerCollisionController.OnFinishEvent -= OnFinish;
+    }
 
     private void Update()
     {
         ProcessPlayerKeybordInput();
 
-        if (isRunning)
+        if (isRunning && !isDeath)
         {
             ProcessPlayerMovement();
         }       
+    }
+
+    private void OnValidate()
+    {
+        GetPlayerInputControllerComponent();
     }
 
     private void ProcessPlayerKeybordInput()
@@ -43,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         if (keyDownLeft || keyDownRight && !isRunning)
         {
-            isRunning = true;
+            OnRun();
         }
 
         if (keyDownLeft)
@@ -60,7 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isRunning)
             {
-                isRunning = true;
+                OnRun();
             }
 
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
@@ -71,9 +88,16 @@ public class PlayerController : MonoBehaviour
         targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
     }
 
-    private void OnValidate()
+    private void OnRun()
     {
-        GetPlayerInputControllerComponent();
+        isRunning = true;
+        OnRunEvent?.Invoke(isRunning);
+    }
+
+    private void OnStop()
+    {
+        isRunning = false;
+        OnRunEvent?.Invoke(isRunning);
     }
 
     private void ProcessPlayerMovement()
@@ -95,5 +119,21 @@ public class PlayerController : MonoBehaviour
         {
             playerInputController = GetComponent<PlayerInputController>();
         }
+    }
+
+    private void OnDeath()
+    {
+        isDeath = true;
+    }
+
+    private void OnFinish()
+    {
+        StartCoroutine(OnfinishCoroutine());
+    }
+
+    private IEnumerator OnfinishCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        OnStop();
     }
 }

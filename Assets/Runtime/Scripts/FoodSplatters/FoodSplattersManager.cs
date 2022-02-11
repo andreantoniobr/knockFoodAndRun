@@ -5,6 +5,7 @@ using UnityEngine;
 public class FoodSplattersManager : MonoBehaviour
 {
     [SerializeField] private FoodSplatter[] foodSplatters;
+    [SerializeField] private FoodSplatter[] foodSplattersEffects;
     [SerializeField] private float foodSplatterTimeToDestroy = 2f;
 
     private static FoodSplattersManager instance;
@@ -27,9 +28,19 @@ public class FoodSplattersManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-    }    
+    }
 
-    private void InstantiateFoodSplatter(Vector3 location, int foodSplatterRandomIndex)
+    private void InstantiateRandomFoodSplater(Vector3 location, FoodSplatter[] foodSplatters)
+    {
+        int foodSplattersAmount = foodSplatters.Length;
+        int foodSplatterRandomIndex = Random.Range(0, foodSplattersAmount);
+        if (foodSplattersAmount > 0 && InFoodSplatersRange(foodSplattersAmount, foodSplatterRandomIndex))
+        {
+            InstantiateFoodSplatter(location, foodSplatters, foodSplatterRandomIndex);
+        }
+    }
+
+    private void InstantiateFoodSplatter(Vector3 location, FoodSplatter[] foodSplatters, int foodSplatterRandomIndex)
     {
         FoodSplatter foodSplatterObject = Instantiate(foodSplatters[foodSplatterRandomIndex], transform.parent);
         if (foodSplatterObject)
@@ -58,11 +69,7 @@ public class FoodSplattersManager : MonoBehaviour
 
     public void InstantiateRandomFoodSplatter(Vector3 location)
     {
-        int foodSplattersAmount = foodSplatters.Length;
-        int foodSplatterRandomIndex = Random.Range(0, foodSplattersAmount);
-        if (foodSplattersAmount > 0 && InFoodSplatersRange(foodSplattersAmount, foodSplatterRandomIndex))
-        {
-            InstantiateFoodSplatter(location, foodSplatterRandomIndex);
-        }
-    }
+        InstantiateRandomFoodSplater(location, foodSplatters);
+        InstantiateRandomFoodSplater(location, foodSplattersEffects);
+    }    
 }

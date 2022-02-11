@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900991075004913486, guid: 219c449fa8be27742acb166574d2f92c, type: 3}
       propertyPath: m_Name
-      value: TrackSegment2
+      value: TrackSegment
       objectReference: {fileID: 0}
     - target: {fileID: 9007089619470674275, guid: 219c449fa8be27742acb166574d2f92c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -144,8 +144,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 0, z: 14}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8, y: 1, z: 14}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1001 &4739889522868629818
 PrefabInstance:
   m_ObjectHideFlags: 0

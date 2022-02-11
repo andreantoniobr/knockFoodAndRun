@@ -9,7 +9,7 @@ public enum HandDirection
     Right
 }
 
-public class PlayerHandColliderController : MonoBehaviour
+public class PlayerHandCollisionController : MonoBehaviour
 {
     [SerializeField] private HandDirection handDirection;
     [SerializeField] private PlayerRigController playerRigController;    
@@ -40,6 +40,7 @@ public class PlayerHandColliderController : MonoBehaviour
         if (target)
         {
             playerRigController.StartSlap(target.transform.position, handDirection);
+            FoodSplashManager.Instance.InstantiateSplash(target.transform.position);
             target.Slap();
         }        
     }

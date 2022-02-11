@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TrackSpawner : MonoBehaviour
 {
+    [SerializeField] private TrackSegment startTrackSegment;
+
+    [Header("Finish")]
+    [SerializeField] private TrackSegment[] finishTrackSegments;
+
+    [Space]
     [SerializeField] private TrackSegment trackSegmentModel;
     [SerializeField] private int initialTrackSegmentsAmount;
 
@@ -11,7 +17,25 @@ public class TrackSpawner : MonoBehaviour
 
     private void Start()
     {
+        InstantiateTrackSegment(startTrackSegment);
         InstantiateInitialTrackSegments();
+        InstantiateTrackSegments(finishTrackSegments);
+    }
+
+    private void InstantiateTrackSegments(TrackSegment[] trackSegments)
+    {
+        int trackSegmentsAmount = trackSegments.Length;
+        if (trackSegmentsAmount > 0)
+        {
+            for (int i = 0; i < trackSegmentsAmount; i++)
+            {
+                TrackSegment currentTrackSegment = trackSegments[i];
+                if (currentTrackSegment)
+                {
+                    InstantiateTrackSegment(currentTrackSegment);
+                }                
+            }
+        }
     }
 
     private void InstantiateInitialTrackSegments()
@@ -20,19 +44,22 @@ public class TrackSpawner : MonoBehaviour
         {
             for (int i = 0; i < initialTrackSegmentsAmount; i++)
             {
-                InstantiateTrackSegment();
+                InstantiateTrackSegment(trackSegmentModel);
             }
         }               
     }
 
-    private void InstantiateTrackSegment()
+    private void InstantiateTrackSegment(TrackSegment trackSegmentModel)
     {
-        TrackSegment currentTrackSegment = Instantiate(trackSegmentModel, transform);
-        if (currentTrackSegment)
+        if (trackSegmentModel)
         {
-            currentTrackSegment.transform.position = GetTrackSegmentPosition(currentTrackSegment);
-            lastTrackSegment = currentTrackSegment;
-        }
+            TrackSegment currentTrackSegment = Instantiate(trackSegmentModel, transform);
+            if (currentTrackSegment)
+            {
+                currentTrackSegment.transform.position = GetTrackSegmentPosition(currentTrackSegment);
+                lastTrackSegment = currentTrackSegment;
+            }
+        }        
     }
 
     private Vector3 GetTrackSegmentPosition(TrackSegment currentTrackSegment)

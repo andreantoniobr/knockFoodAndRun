@@ -9,13 +9,26 @@ public class PlayerAnimatorController : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        playerController.OnRunEvent += OnRun;
     }
 
-    private void Update()
+    private void OnDestroy()
+    {
+        playerController.OnRunEvent -= OnRun;
+    }
+
+    private void OnRun(bool isRunning)
     {
         if (animator && playerController)
         {
-            animator.SetBool(PlayerAnimatorConstants.IsRunning, playerController.IsRunning);
+            animator.SetBool(PlayerAnimatorConstants.IsRunning, isRunning);
         }
     }
+
+
+    /*
+    private void Update()
+    {
+        SetAnimatorRun();
+    }*/
 }
