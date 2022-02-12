@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cylinder : MonoBehaviour
+public class Saw : MonoBehaviour
 {
-    [SerializeField] private Transform cylinderModel;
+    [SerializeField] private Transform sawModel;
     [SerializeField] private float rotationSpeed = 1f;
 
     private void FixedUpdate()
     {
-        cylinderModel.Rotate(Vector3.up * rotationSpeed * Time.fixedDeltaTime);
+        sawModel.Rotate(Vector3.forward * rotationSpeed * Time.fixedDeltaTime);
     }
 }

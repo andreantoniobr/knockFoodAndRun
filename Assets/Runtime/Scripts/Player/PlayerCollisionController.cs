@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerCollisionController : MonoBehaviour
 {
-    public static event Action OnDeathEvent;
+    public static event Action<Vector3> OnDeathEvent;
     public static event Action OnFinishEvent;
 
     private void OnTriggerEnter(Collider other)
@@ -14,16 +14,16 @@ public class PlayerCollisionController : MonoBehaviour
         CheckColliderIsFinishLine(other);
     }
 
-    private static void CheckColliderIsObstacle(Collider other)
+    private void CheckColliderIsObstacle(Collider other)
     {
         Obstacle obstacle = other.GetComponent<Obstacle>();
         if (obstacle)
         {
-            OnDeathEvent?.Invoke();
+            OnDeathEvent?.Invoke(transform.position);
         }
     }
 
-    private static void CheckColliderIsFinishLine(Collider other)
+    private void CheckColliderIsFinishLine(Collider other)
     {
         FinishLine finishLine = other.GetComponent<FinishLine>();
         if (finishLine)

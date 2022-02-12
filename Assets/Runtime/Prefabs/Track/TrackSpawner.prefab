@@ -44,6 +44,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTrackSegment: {fileID: 4021146959320880843, guid: db5a684f79028b743a1859fcdda964d9, type: 3}
-  finishTrackSegment: {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
+  levelTrackSegments:
+  - {fileID: 4021146959320880843, guid: 9353fb1583bb5c04c92042749f302b3a, type: 3}
+  - {fileID: 4021146959320880843, guid: 9f5f6f1ab5c933f45b3ac83c95a0da02, type: 3}
+  - {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+  - {fileID: 4021146959320880843, guid: 06f4b6d3300cda6498322d22003bdbca, type: 3}
+  - {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+  - {fileID: 4021146959320880843, guid: a6e117d8e15cfae44be60e2d1d57ca4d, type: 3}
+  - {fileID: 4021146959320880843, guid: e460a77f6a4cc3d45a550b4920309955, type: 3}
+  - {fileID: 4021146959320880843, guid: 912fe41ed15e94846ac10c16b434488b, type: 3}
+  - {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
+  TrackSegmentsLevelModels:
+  - {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+  - {fileID: 4021146959320880843, guid: 06f4b6d3300cda6498322d22003bdbca, type: 3}
+  - {fileID: 4021146959320880843, guid: a6e117d8e15cfae44be60e2d1d57ca4d, type: 3}
+  - {fileID: 4021146959320880843, guid: e460a77f6a4cc3d45a550b4920309955, type: 3}
+  - {fileID: 4021146959320880843, guid: bfd7c161f17d0b0479b4d7547f675d6c, type: 3}
+  - {fileID: 4021146959320880843, guid: 912fe41ed15e94846ac10c16b434488b, type: 3}
+  - {fileID: 4021146959320880843, guid: 9f5f6f1ab5c933f45b3ac83c95a0da02, type: 3}
+  - {fileID: 4021146959320880843, guid: 9353fb1583bb5c04c92042749f302b3a, type: 3}
+  - {fileID: 4021146959320880843, guid: 1228ada25a5afaf40bb81b24681df364, type: 3}
+  - {fileID: 4021146959320880843, guid: 6cf60a43dd3e8484ca7a899e54d42736, type: 3}
+  TrackSegmentsObstacleModels:
+  - {fileID: 4021146959320880843, guid: 309936a5d051fc4409339f22f3291a34, type: 3}
+  - {fileID: 4021146959320880843, guid: 057e92b8eb8dd8d41aed649a7b9ce497, type: 3}
+  - {fileID: 4021146959320880843, guid: ead1432507af9e847973a418d0a4a50f, type: 3}
+  - {fileID: 4021146959320880843, guid: 3e169472838378440836b6a024841078, type: 3}
+  - {fileID: 4021146959320880843, guid: 368725b70e3a4f1409c4fe3d70f3f8c3, type: 3}
+  - {fileID: 4021146959320880843, guid: 3d63e555d693a1f40861d0207420cc57, type: 3}
+  - {fileID: 4021146959320880843, guid: cd549d9b93becf446a228f3c0dcb1f54, type: 3}
+  - {fileID: 4021146959320880843, guid: d9c733d2833f9004ca4846c782d9c128, type: 3}
+  - {fileID: 4021146959320880843, guid: eddde8cb1edab11478b5d75161503fa3, type: 3}
+  randomTrackSegments:
+  - trackSegmentType: 1
+  - trackSegmentType: 1
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 1
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 0
+  - trackSegmentType: 1
+  - trackSegmentType: 0
+  - trackSegmentType: 1
+  - trackSegmentType: 1
+  - trackSegmentType: 0
+  finishTrackSegments:
+  - {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
   trackSegmentModel: {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
   initialTrackSegmentsAmount: 18

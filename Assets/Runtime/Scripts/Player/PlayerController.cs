@@ -121,9 +121,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnDeath()
+    private void OnDeath(Vector3 position)
     {
         isDeath = true;
+        Destroy(gameObject);
     }
 
     private void OnFinish()

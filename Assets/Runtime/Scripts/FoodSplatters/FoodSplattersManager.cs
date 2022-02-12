@@ -14,6 +14,12 @@ public class FoodSplattersManager : MonoBehaviour
     private void Awake()
     {
         SetThisInstance();
+        PlayerCollisionController.OnDeathEvent += OnPlayerDeath;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCollisionController.OnDeathEvent -= OnPlayerDeath;
     }
 
     private void SetThisInstance()
@@ -28,6 +34,11 @@ public class FoodSplattersManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+
+    private void OnPlayerDeath(Vector3 position)
+    {
+        InstantiateRandomFoodSplatter(position);
     }
 
     private void InstantiateRandomFoodSplater(Vector3 location, FoodSplatter[] foodSplatters)

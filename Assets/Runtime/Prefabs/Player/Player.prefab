@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInputController: {fileID: 8769179787364666823}
-  forwardSpeedZ: 8
+  forwardSpeedZ: 10
   horizontalSpeedX: 3
   maxDistanceX: 3.2
 --- !u!114 &3397287013380891342

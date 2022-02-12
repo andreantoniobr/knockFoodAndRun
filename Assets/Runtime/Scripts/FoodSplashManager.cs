@@ -12,6 +12,12 @@ public class FoodSplashManager : MonoBehaviour
     private void Awake()
     {
         SetThisInstance();
+        PlayerCollisionController.OnDeathEvent += OnPlayerDeath;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCollisionController.OnDeathEvent -= OnPlayerDeath;
     }
 
     private void SetThisInstance()
@@ -26,6 +32,12 @@ public class FoodSplashManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+    }
+
+    private void OnPlayerDeath(Vector3 position)
+    {
+        position.y = 1;
+        InstantiateSplash(position);
     }
 
     public void InstantiateSplash(Vector3 position)
