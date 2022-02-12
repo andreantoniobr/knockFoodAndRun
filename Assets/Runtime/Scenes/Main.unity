@@ -2165,9 +2165,53 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: finishTrackSegments.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: randomTrackSegments.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[0]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 9353fb1583bb5c04c92042749f302b3a, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[1]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 9f5f6f1ab5c933f45b3ac83c95a0da02, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[2]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[3]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 06f4b6d3300cda6498322d22003bdbca, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[4]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[5]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: a6e117d8e15cfae44be60e2d1d57ca4d, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[6]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: e460a77f6a4cc3d45a550b4920309955, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[7]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 912fe41ed15e94846ac10c16b434488b, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: levelTrackSegments.Array.data[8]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
     - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: finishTrackSegments.Array.data[0]
       value: 
@@ -2184,6 +2228,66 @@ PrefabInstance:
       propertyPath: finishTrackSegments.Array.data[3]
       value: 
       objectReference: {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[0]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[1]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 06f4b6d3300cda6498322d22003bdbca, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[2]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: a6e117d8e15cfae44be60e2d1d57ca4d, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[3]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: e460a77f6a4cc3d45a550b4920309955, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[4]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: bfd7c161f17d0b0479b4d7547f675d6c, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[5]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 912fe41ed15e94846ac10c16b434488b, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[6]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 9f5f6f1ab5c933f45b3ac83c95a0da02, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[7]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 9353fb1583bb5c04c92042749f302b3a, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[8]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 1228ada25a5afaf40bb81b24681df364, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[9]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 6cf60a43dd3e8484ca7a899e54d42736, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsObstacleModels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsLevelModels.Array.data[10]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: TrackSegmentsObstacleModels.Array.data[0]
+      value: 
+      objectReference: {fileID: 4021146959320880843, guid: 057e92b8eb8dd8d41aed649a7b9ce497, type: 3}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: randomTrackSegments.Array.data[0].trackSegmentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6250374632817281967, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: m_RootOrder
       value: 5
