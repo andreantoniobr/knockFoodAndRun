@@ -3,20 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
-{
-    private bool isTouching;
-    public bool IsTouching => isTouching;
+{    
+    [SerializeField] private bool detectSwipeOnlyAfterRelease = false;
+    [SerializeField] private float SWIPE_THRESHOLD = 20f;
 
-    [SerializeField] private Vector3 touchedPos;
-
+    private Vector2 fingerDown;
+    private Vector2 fingerUp;
 
     private float touchedPositionX;
     public float TouchedPositionX => touchedPositionX;
+    
+    private bool isTouching = false;
+    public bool IsTouching => isTouching;
 
-
-
-    public void Update() 
+    private void Update()
     {
+#if UNITY_EDITOR
+        ProcessKeybordInput();
+#endif
+
+#if UNITY_ANDROID
+        ProcessTouchMobileInput();
+#endif        
+    }
+
+    private void ProcessTouchMobileInput()
+    {
+        /*
         if (Input.touchCount > 0)
         {
             isTouching = true;
@@ -24,17 +37,93 @@ public class PlayerInputController : MonoBehaviour
 
             if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
             {
-                
-                // get the touch position from the screen touch to world point
-                touchedPos = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0));
-                touchedPositionX = touchedPos.x;
-                // lerp and set the position of the current object to that of the touch, but smoothly over time.
-                //transform.position = Vector3.Lerp(transform.position, touchedPos, Time.deltaTime);
+                touchedPositionX = touch.deltaPosition.x > 0 ? -1 : 1;
             }
         }
+        else 
+        {
+            isTouching = false;
+        }*/
+
+        foreach (Touch touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                fingerUp = touch.position;
+                fingerDown = touch.position;
+                isTouching = true;
+            }
+
+            //Detects Swipe while finger is still moving
+            if (touch.phase == TouchPhase.Moved)
+            {
+                if (!detectSwipeOnlyAfterRelease)
+                {
+                    fingerDown = touch.position;
+                    checkSwipe();
+                }
+            }
+
+            //Detects swipe after finger is released
+            if (touch.phase == TouchPhase.Ended)
+            {
+                fingerDown = touch.position;
+                checkSwipe();
+                isTouching = false;
+            }
+        }
+    }
+
+    void checkSwipe()
+    {
+        //Check if Horizontal swipe
+        if (horizontalValMove() > SWIPE_THRESHOLD && horizontalValMove() > verticalMove())
+        {
+            //Debug.Log("Horizontal");
+            if (fingerDown.x - fingerUp.x > 0)//Right swipe
+            {
+                touchedPositionX = 1;
+            }
+            else if (fingerDown.x - fingerUp.x < 0)//Left swipe
+            {
+                touchedPositionX = -1;
+            }
+            fingerUp = fingerDown;
+        }
+    }
+
+    float verticalMove()
+    {
+        return Mathf.Abs(fingerDown.y - fingerUp.y);
+    }
+
+    float horizontalValMove()
+    {
+        return Mathf.Abs(fingerDown.x - fingerUp.x);
+    }
+
+    private void ProcessKeybordInput()
+    {
+        bool keyDownLeft = Input.GetKey(KeyCode.A);
+        bool keyDownRight = Input.GetKey(KeyCode.D);
+
+        if (keyDownLeft || keyDownRight)
+        {
+            isTouching = true;            
+        } 
         else
         {
             isTouching = false;
+        }
+
+        if (keyDownLeft)
+        {
+            touchedPositionX = -1;
+        }
+
+        if (keyDownRight)
+        {
+            touchedPositionX = 1;
         }
     }
 }

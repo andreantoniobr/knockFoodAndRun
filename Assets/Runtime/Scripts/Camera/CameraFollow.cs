@@ -10,8 +10,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 currentPosition = transform.position;
-        currentPosition.z = playerController.transform.position.z - armZ;
-        transform.position = currentPosition;
+        if (playerController)
+        {
+            Vector3 currentPosition = transform.position;
+            currentPosition.z = playerController.transform.position.z - armZ;
+            transform.position = currentPosition;
+        }        
     }
 }

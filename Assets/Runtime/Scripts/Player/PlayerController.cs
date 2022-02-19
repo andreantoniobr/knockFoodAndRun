@@ -40,7 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        ProcessPlayerKeybordInput();
+        //ProcessPlayerKeybordInput();
+        ProcessPlayerInput();
 
         if (isRunning && !isDeath)
         {
@@ -51,6 +52,21 @@ public class PlayerController : MonoBehaviour
     private void OnValidate()
     {
         GetPlayerInputControllerComponent();
+    }
+
+    private void ProcessPlayerInput()
+    {
+        if (playerInputController.IsTouching && !isRunning)
+        {
+            OnRun();            
+        }
+
+        if (playerInputController.IsTouching && isRunning)
+        {
+            targetPositionX = transform.position.x + playerInputController.TouchedPositionX;
+        }
+
+        targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
     }
 
     private void ProcessPlayerKeybordInput()
@@ -73,6 +89,8 @@ public class PlayerController : MonoBehaviour
             targetPositionX = transform.position.x + 2f;
         }
 
+        /*MOUSE*/
+        /*
         if (Input.GetMouseButton(0))
         {
             if (!isRunning)
@@ -83,7 +101,7 @@ public class PlayerController : MonoBehaviour
             Vector3 mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
             Vector3 objPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             targetPositionX = objPosition.x;
-        }
+        }*/
 
         targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
     }
@@ -91,13 +109,13 @@ public class PlayerController : MonoBehaviour
     private void OnRun()
     {
         isRunning = true;
-        OnRunEvent?.Invoke(isRunning);
+        OnRunEvent?.Invoke(true);
     }
 
     private void OnStop()
     {
         isRunning = false;
-        OnRunEvent?.Invoke(isRunning);
+        OnRunEvent?.Invoke(false);
     }
 
     private void ProcessPlayerMovement()

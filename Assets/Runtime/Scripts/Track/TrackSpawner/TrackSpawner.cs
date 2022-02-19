@@ -16,22 +16,29 @@ public class RandomTrackSegment
 
 public class TrackSpawner : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private int minTrackSegmentsInFrontPlayerAmount = 6;
+    [SerializeField] private int maxTrackSegmentsAfterPlayerAmount = 1;
+    [SerializeField] private float timeToRemoveTrackSegmentsAfterPlayer = 0.5f;
+
+    [Header("TrackSegments")]
     [SerializeField] private TrackSegment startTrackSegment;
     [SerializeField] private TrackSegment[] levelTrackSegments;
+    [SerializeField] private TrackSegment[] finishTrackSegments;
 
-    [Header("Ramdom TrackSegments")]
+    [Header("Random TrackSegments")]
     [SerializeField] private TrackSegment[] TrackSegmentsLevelModels;
     [SerializeField] private TrackSegment[] TrackSegmentsObstacleModels;
     [SerializeField] private RandomTrackSegment[] randomTrackSegments;
-
-    [Header("Finish")]
-    [SerializeField] private TrackSegment[] finishTrackSegments;
-
-    [Space]
-    [SerializeField] private TrackSegment trackSegmentModel;
-    [SerializeField] private int initialTrackSegmentsAmount;
-
+    
     private TrackSegment lastTrackSegment;
+    private TrackSegment currentTrackSegment;
+    private int currentTrackSegmentIndex;
+
+    private List<TrackSegment> spawnedTrackSegments = new List<TrackSegment>();
+
+    private int TrackSegmentsAfterPlayerAmount => currentTrackSegmentIndex;
+    private int TrackSegmentsInFrontPlayerAmount => spawnedTrackSegments.Count - (currentTrackSegmentIndex + 1);
 
     private void Start()
     {
@@ -40,6 +47,122 @@ public class TrackSpawner : MonoBehaviour
         //InstantiateTrackSegments(levelTrackSegments);
         InstantiateRandomTrackSegment(randomTrackSegments);
         InstantiateTrackSegments(finishTrackSegments);
+        StartCoroutine(RemoveTrackSegmentsAfterPlayerCotroutine());
+    }    
+
+    private IEnumerator RemoveTrackSegmentsAfterPlayerCotroutine()
+    {
+        while (true)
+        {
+            RemoveTrackSegmentsAfterPlayer();
+            yield return new WaitForSeconds(timeToRemoveTrackSegmentsAfterPlayer);
+        }
+    }
+
+    private void RemoveTrackSegmentsAfterPlayer()
+    {
+        if (playerController)
+        {            
+            float playerPositionZ = playerController.transform.position.z;
+            //currentTrackSegment = GetCurrentTrackSegment(playerPositionZ);
+            currentTrackSegmentIndex = GetCurrentTrackSegmentIndex(playerPositionZ);
+            List <TrackSegment> trackSegmentsToRemove = GetTrackSegmentsToRemove(playerPositionZ);
+            RemoveTrackSegments(trackSegmentsToRemove);
+        }
+    }
+
+    private void RemoveTrackSegments(List<TrackSegment> trackSegmentsToRemove)
+    {
+        int trackSegmentsToRemoveAmount = trackSegmentsToRemove.Count;
+        if (trackSegmentsToRemoveAmount > 0)
+        {
+            for (int i = 0; i < trackSegmentsToRemoveAmount; i++)
+            {
+                TrackSegment trackSegment = trackSegmentsToRemove[i];
+                RemoveTrackSegment(trackSegment);
+            }
+        }
+    }
+
+    private void RemoveTrackSegment(TrackSegment trackSegment)
+    {        
+        if (trackSegment)
+        {
+            Destroy(trackSegment.gameObject);
+            spawnedTrackSegments.Remove(trackSegment);
+        }
+    }
+
+    private List<TrackSegment> GetTrackSegmentsToRemove(float playerPositionZ)
+    {
+        List<TrackSegment> trackSegmentsToRemove = new List<TrackSegment>();
+        //Debug.Log(TrackSegmentsAfterPlayerAmount + "-" + maxTrackSegmentsAfterPlayerAmount);
+
+        int trackSegmentsToRemoveAmount = TrackSegmentsAfterPlayerAmount - maxTrackSegmentsAfterPlayerAmount;
+
+        if (trackSegmentsToRemoveAmount > 0)
+        {
+            for (int i = 0; i < trackSegmentsToRemoveAmount; i++)
+            {
+                TrackSegment trackSegment = spawnedTrackSegments[i];
+                if (IsTrackSegmentAfterPlayer(playerPositionZ, trackSegment))
+                {
+                    trackSegmentsToRemove.Add(trackSegment);
+                }
+            }
+        }      
+
+        return trackSegmentsToRemove;
+    }
+
+    private bool IsTrackSegmentAfterPlayer(float playerPositionZ, TrackSegment trackSegment)
+    {
+        return trackSegment && playerPositionZ > trackSegment.transform.position.z;
+    }
+
+    private TrackSegment GetCurrentTrackSegment(float playerPositionZ)
+    {
+        TrackSegment currentTrackSegment = null;
+        int spawnedTrackSegmentsAmount = spawnedTrackSegments.Count;
+
+        if (spawnedTrackSegmentsAmount > 0)
+        {
+            for (int i = 0; i < spawnedTrackSegmentsAmount; i++)
+            {
+                TrackSegment trackSegment = spawnedTrackSegments[i];
+                if (IsCurrentTrackSegment(playerPositionZ, trackSegment))
+                {
+                    currentTrackSegment = trackSegment;
+                }
+            }
+        }
+
+        return currentTrackSegment;
+    }
+
+    private int GetCurrentTrackSegmentIndex(float playerPositionZ)
+    {
+        int trackSegmentIndex = 0;
+        int spawnedTrackSegmentsAmount = spawnedTrackSegments.Count;
+
+        if (spawnedTrackSegmentsAmount > 0)
+        {
+            for (int i = 0; i < spawnedTrackSegmentsAmount; i++)
+            {
+                TrackSegment trackSegment = spawnedTrackSegments[i];
+                if (IsCurrentTrackSegment(playerPositionZ, trackSegment))
+                {
+                    trackSegmentIndex = i;
+                }
+            }
+        }
+
+        return trackSegmentIndex;
+    }
+
+    private bool IsCurrentTrackSegment(float playerPositionZ, TrackSegment trackSegment)
+    {
+        return trackSegment && playerPositionZ >= trackSegment.StartPosition.z && playerPositionZ <= trackSegment.EndPosition.z;
     }
 
     private void InstantiateRandomTrackSegment(RandomTrackSegment[] randomTrackSegments)
@@ -109,17 +232,6 @@ public class TrackSpawner : MonoBehaviour
         }
     }
 
-    private void InstantiateInitialTrackSegments()
-    {
-        if (initialTrackSegmentsAmount > 0)
-        {
-            for (int i = 0; i < initialTrackSegmentsAmount; i++)
-            {
-                InstantiateTrackSegment(trackSegmentModel);
-            }
-        }               
-    }
-
     private void InstantiateTrackSegment(TrackSegment trackSegment)
     {
         if (trackSegment)
@@ -127,8 +239,9 @@ public class TrackSpawner : MonoBehaviour
             TrackSegment currentTrackSegment = Instantiate(trackSegment, transform);
             if (currentTrackSegment)
             {
+                spawnedTrackSegments.Add(currentTrackSegment);
                 currentTrackSegment.transform.position = GetTrackSegmentPosition(currentTrackSegment);
-                lastTrackSegment = currentTrackSegment;
+                lastTrackSegment = currentTrackSegment;                
             }
         }        
     }

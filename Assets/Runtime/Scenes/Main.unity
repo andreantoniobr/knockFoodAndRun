@@ -728,10 +728,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1825998821}
-    - target: {fileID: 38697217550847993, guid: 1dbe3f427f7fd6c44833a12831808fb0, type: 3}
-      propertyPath: playerMovementController
-      value: 
-      objectReference: {fileID: 1825998821}
     - target: {fileID: 38697217550847994, guid: 1dbe3f427f7fd6c44833a12831808fb0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -775,10 +771,6 @@ PrefabInstance:
     - target: {fileID: 38697217550847994, guid: 1dbe3f427f7fd6c44833a12831808fb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 38697218197656139, guid: 1dbe3f427f7fd6c44833a12831808fb0, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbe3f427f7fd6c44833a12831808fb0, type: 3}
@@ -894,10 +886,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8886122802199380025, guid: 72a10eb585d3987488119cab91490522, type: 3}
-      propertyPath: playerDeathAudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f3767615111ae464aae0624cfed69b94, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72a10eb585d3987488119cab91490522, type: 3}
 --- !u!1001 &5587749367579134168
@@ -955,14 +943,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5587749366487910457, guid: 8d64b9321129d7f459d9c030702ebd25, type: 3}
-      propertyPath: foodSplattersEffects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587749366487910457, guid: 8d64b9321129d7f459d9c030702ebd25, type: 3}
-      propertyPath: foodSplattersEffects.Array.data[0]
-      value: 
-      objectReference: {fileID: 7847862700843936863, guid: 6041a7a7ec35f1d4e9b3ce4be2cb9ae1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d64b9321129d7f459d9c030702ebd25, type: 3}
 --- !u!1001 &6163382508149302621
@@ -973,12 +953,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6163382506617758392, guid: 1cd4b838ddcad1142bf61fc1f44322c4, type: 3}
-      propertyPath: forwardSpeedZ
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6163382506617758392, guid: 1cd4b838ddcad1142bf61fc1f44322c4, type: 3}
       propertyPath: horizontalSpeedX
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6163382506617758393, guid: 1cd4b838ddcad1142bf61fc1f44322c4, type: 3}
       propertyPath: m_RootOrder
@@ -1042,41 +1018,9 @@ PrefabInstance:
       value: TrackSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: finishTrackSegments.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: finishTrackSegments.Array.data[0]
+      propertyPath: playerController
       value: 
-      objectReference: {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: finishTrackSegments.Array.data[1]
-      value: 
-      objectReference: {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: finishTrackSegments.Array.data[4]
-      value: 
-      objectReference: {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: finishTrackSegments.Array.data[5]
-      value: 
-      objectReference: {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: randomTrackSegments.Array.data[0].trackSegmentType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: randomTrackSegments.Array.data[1].trackSegmentType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: randomTrackSegments.Array.data[5].trackSegmentType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: randomTrackSegments.Array.data[11].trackSegmentType
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1825998821}
     - target: {fileID: 6250374632817281967, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: m_RootOrder
       value: 6

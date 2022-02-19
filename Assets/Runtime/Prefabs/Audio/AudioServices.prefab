@@ -142,3 +142,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 7297272258284282434}
   knockFoodAudioClip: {fileID: 8300000, guid: f3767615111ae464aae0624cfed69b94, type: 3}
+  playerDeathAudioClip: {fileID: 8300000, guid: f3767615111ae464aae0624cfed69b94, type: 3}

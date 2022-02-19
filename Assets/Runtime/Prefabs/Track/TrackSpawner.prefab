@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1348e35e98107a84486d1c5bb42f4287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  minTrackSegmentsInFrontPlayerAmount: 6
+  maxTrackSegmentsAfterPlayerAmount: 1
+  timeToRemoveTrackSegmentsAfterPlayer: 0.5
   startTrackSegment: {fileID: 4021146959320880843, guid: db5a684f79028b743a1859fcdda964d9, type: 3}
   levelTrackSegments:
   - {fileID: 4021146959320880843, guid: 9353fb1583bb5c04c92042749f302b3a, type: 3}
@@ -54,6 +58,13 @@ MonoBehaviour:
   - {fileID: 4021146959320880843, guid: e460a77f6a4cc3d45a550b4920309955, type: 3}
   - {fileID: 4021146959320880843, guid: 912fe41ed15e94846ac10c16b434488b, type: 3}
   - {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
+  finishTrackSegments:
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
+  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
   TrackSegmentsLevelModels:
   - {fileID: 4021146959320880843, guid: bb9f1f56cf4c4ab40852f7f6dea69f4d, type: 3}
   - {fileID: 4021146959320880843, guid: 06f4b6d3300cda6498322d22003bdbca, type: 3}
@@ -76,9 +87,6 @@ MonoBehaviour:
   - {fileID: 4021146959320880843, guid: d9c733d2833f9004ca4846c782d9c128, type: 3}
   - {fileID: 4021146959320880843, guid: eddde8cb1edab11478b5d75161503fa3, type: 3}
   randomTrackSegments:
-  - trackSegmentType: 1
-  - trackSegmentType: 1
-  - trackSegmentType: 0
   - trackSegmentType: 0
   - trackSegmentType: 0
   - trackSegmentType: 0
@@ -87,17 +95,13 @@ MonoBehaviour:
   - trackSegmentType: 1
   - trackSegmentType: 0
   - trackSegmentType: 0
+  - trackSegmentType: 1
   - trackSegmentType: 0
   - trackSegmentType: 0
   - trackSegmentType: 1
   - trackSegmentType: 0
   - trackSegmentType: 1
+  - trackSegmentType: 0
+  - trackSegmentType: 1
   - trackSegmentType: 1
   - trackSegmentType: 0
-  finishTrackSegments:
-  - {fileID: 4021146959320880843, guid: a6e651609ac5e1741883f48d5dc8ed82, type: 3}
-  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-  - {fileID: 4021146959320880843, guid: 1a174ed16e2024d4299839c21b9596b3, type: 3}
-  trackSegmentModel: {fileID: 4021146959320880843, guid: fc90037d71308b94c92c3938f3417b98, type: 3}
-  initialTrackSegmentsAmount: 18

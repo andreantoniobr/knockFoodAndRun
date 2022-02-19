@@ -18,6 +18,7 @@ public class GameMode : MonoBehaviour
         PlayerCollisionController.OnDeathEvent += OnPlayerDeath;
         PlayerCollisionController.OnFinishEvent += OnFinish;
     }
+
     private void OnDestroy()
     {
         PlayerCollisionController.OnDeathEvent -= OnPlayerDeath;

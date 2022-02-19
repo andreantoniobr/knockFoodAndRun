@@ -46,4 +46,6 @@ MonoBehaviour:
   foodSplatters:
   - {fileID: 3526411952684111784, guid: 9f778fb57271ee643ad67e7bc839b08a, type: 3}
   - {fileID: 6002966622777791365, guid: 27fe086c0a0356747b46fc30cf88737f, type: 3}
+  foodSplattersEffects:
+  - {fileID: 7847862700843936863, guid: 6041a7a7ec35f1d4e9b3ce4be2cb9ae1, type: 3}
   foodSplatterTimeToDestroy: 2
