@@ -41,12 +41,19 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         //ProcessPlayerKeybordInput();
+        
+
+             
+    }
+
+    private void FixedUpdate()
+    {
         ProcessPlayerInput();
 
         if (isRunning && !isDeath)
         {
             ProcessPlayerMovement();
-        }       
+        }
     }
 
     private void OnValidate()
@@ -56,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessPlayerInput()
     {
+        /*
         if (playerInputController.IsTouching && !isRunning)
         {
             OnRun();            
@@ -66,7 +74,48 @@ public class PlayerController : MonoBehaviour
             targetPositionX = transform.position.x + playerInputController.TouchedPositionX;
         }
 
-        targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
+        targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);*/
+
+        //return Mathf.Lerp(transform.position.x, targetPositionX, Time.deltaTime * horizontalSpeedX);
+
+        /*
+        if (Input.touchCount > 0)
+        {
+            if (!isRunning)
+            {
+                OnRun();
+            }
+
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                targetPositionX = touch.deltaPosition.x * horizontalSpeedX * Time.deltaTime;                
+                //transform.Translate(targetPositionX, 0, 0);
+            }
+        }     */
+
+        if (Input.touchCount > 0)
+        {
+            if (!isRunning)
+            {
+                OnRun();
+            }
+
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
+            {
+                case TouchPhase.Moved:
+                    targetPositionX = (touch.deltaPosition.x / Screen.width ) * horizontalSpeedX * Time.fixedDeltaTime / touch.deltaTime;
+                    break;
+                case TouchPhase.Stationary:
+                    targetPositionX = 0;
+                    break;
+
+                default:
+                    targetPositionX = 0;
+                    break;
+            }
+        }
     }
 
     private void ProcessPlayerKeybordInput()
@@ -121,14 +170,19 @@ public class PlayerController : MonoBehaviour
     private void ProcessPlayerMovement()
     {
         Vector3 currentPosition = transform.position;
-        currentPosition.x = ProcessHorizontalMovement();
-        currentPosition.z += forwardSpeedZ * Time.deltaTime;
+        
+        currentPosition.x += ProcessHorizontalMovement();
+        currentPosition.x = Mathf.Clamp(currentPosition.x, MaxLeftDistance, MaxRightDistance);
+        
+        currentPosition.z += forwardSpeedZ * Time.fixedDeltaTime;
         transform.position = currentPosition;
     }
 
     private float ProcessHorizontalMovement()
     {
-        return Mathf.Lerp(transform.position.x, targetPositionX, Time.deltaTime * horizontalSpeedX);
+        //return Mathf.Lerp(transform.position.x, targetPositionX, horizontalSpeedX * Time.deltaTime);
+        //argetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
+        return targetPositionX * horizontalSpeedX * Time.fixedDeltaTime;       
     }
 
     private void GetPlayerInputControllerComponent()

@@ -954,7 +954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6163382506617758392, guid: 1cd4b838ddcad1142bf61fc1f44322c4, type: 3}
       propertyPath: horizontalSpeedX
-      value: 4
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6163382506617758393, guid: 1cd4b838ddcad1142bf61fc1f44322c4, type: 3}
       propertyPath: m_RootOrder
@@ -1016,6 +1016,14 @@ PrefabInstance:
     - target: {fileID: 3499919933818257611, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: m_Name
       value: TrackSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499919933818257611, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: playerController
