@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool isRunning = false;
     public bool IsRunning => isRunning;
 
+    private bool isProcessingInput = true;
+
     private Vector3 initialPosition;
     private float targetPositionX;
 
@@ -40,14 +42,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR
-        ProcessPlayerKeybordInput();
-#endif
+
     }
 
     private void FixedUpdate()
     {
-        ProcessPlayerInput();
+#if UNITY_EDITOR
+        if (isProcessingInput && !isDeath)
+        {
+            ProcessPlayerKeybordInput();
+        }
+#endif
+        if (isProcessingInput && !isDeath)
+        {
+            ProcessPlayerInput();
+        }        
 
         if (isRunning && !isDeath)
         {
@@ -129,12 +138,14 @@ public class PlayerController : MonoBehaviour
 
         if (keyDownLeft)
         {
-            targetPositionX = transform.position.x - 2f;
-        }
-
-        if (keyDownRight)
+            targetPositionX = -0.5f * horizontalSpeedX * Time.fixedDeltaTime;
+        } else if (keyDownRight)
         {
-            targetPositionX = transform.position.x + 2f;
+            targetPositionX = 0.5f * horizontalSpeedX * Time.fixedDeltaTime;
+        }
+        else
+        {
+            targetPositionX = 0;
         }
 
         /*MOUSE*/
@@ -151,7 +162,7 @@ public class PlayerController : MonoBehaviour
             targetPositionX = objPosition.x;
         }*/
 
-        targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
+        //targetPositionX = Mathf.Clamp(targetPositionX, MaxLeftDistance, MaxRightDistance);
     }
 
     private void OnRun()
@@ -163,6 +174,7 @@ public class PlayerController : MonoBehaviour
     private void OnStop()
     {
         isRunning = false;
+        isProcessingInput = false;
         OnRunEvent?.Invoke(false);
     }
 

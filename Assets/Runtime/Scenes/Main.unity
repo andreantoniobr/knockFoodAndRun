@@ -1013,14 +1013,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrackSpawner
       objectReference: {fileID: 0}
-    - target: {fileID: 3499919933818257611, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3596555479725614670, guid: a2922007870b2824ab8ae2343e16d019, type: 3}
       propertyPath: playerController
       value: 
