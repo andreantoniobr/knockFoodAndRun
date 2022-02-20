@@ -40,10 +40,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //ProcessPlayerKeybordInput();
-        
-
-             
+#if UNITY_EDITOR
+        ProcessPlayerKeybordInput();
+#endif
     }
 
     private void FixedUpdate()
