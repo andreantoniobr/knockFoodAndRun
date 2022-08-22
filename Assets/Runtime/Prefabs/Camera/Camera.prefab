@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e96ccd7f6672254893b5365902ed8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   playerController: {fileID: 0}
   armZ: 8
 --- !u!1 &38697218197656137
@@ -88,8 +89,8 @@ Camera:
   m_GameObject: {fileID: 38697218197656137}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.030838395, g: 0.7312143, b: 0.9339623, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.34901962, g: 0.8588236, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
