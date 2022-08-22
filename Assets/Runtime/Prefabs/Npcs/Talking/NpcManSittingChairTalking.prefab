@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NpcManSittingTalking
       objectReference: {fileID: 0}
+    - target: {fileID: 7935771278734453956, guid: cccb2921d0fb08145a67c57f74bc1bac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 24b6a3223e1dc7a4ea2c46681415dadb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cccb2921d0fb08145a67c57f74bc1bac, type: 3}
 --- !u!4 &7031321520536931339 stripped

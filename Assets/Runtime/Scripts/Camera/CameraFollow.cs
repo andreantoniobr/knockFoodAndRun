@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class CameraFollow : MonoBehaviour
 {
+    [SerializeField] private float speed = 1.5f;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private float armZ;
 
@@ -13,8 +14,10 @@ public class CameraFollow : MonoBehaviour
         if (playerController)
         {
             Vector3 currentPosition = transform.position;
+            currentPosition.x = playerController.transform.position.x;
             currentPosition.z = playerController.transform.position.z - armZ;
-            transform.position = currentPosition;
+            transform.position = Vector3.Lerp(transform.position, currentPosition, speed);
+            //transform.position = currentPosition;
         }        
     }
 }
